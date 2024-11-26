@@ -1,6 +1,4 @@
-﻿using RomDownloader;
-
-namespace RG35XX.RomDownloader
+﻿namespace RomDownloader
 {
     internal class Program
     {
@@ -9,7 +7,6 @@ namespace RG35XX.RomDownloader
             Downloader store = new();
 
             await store.Execute();
-
         }
     }
 }

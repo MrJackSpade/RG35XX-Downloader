@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RomDownloader
+﻿namespace RomDownloader
 {
     internal static class DirectoryMapper
     {
@@ -15,7 +9,7 @@ namespace RomDownloader
                 return null;
             }
 
-            var mapping = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+            Dictionary<string, string> mapping = new(StringComparer.OrdinalIgnoreCase)
         {
             // Atari Systems
             { "Atari 2600", "A2600" },

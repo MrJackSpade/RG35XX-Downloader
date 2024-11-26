@@ -2,27 +2,43 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-	  <TargetFramework Condition="'$(Configuration)' == 'Debug'">net8.0-windows</TargetFramework>
-	  <TargetFramework Condition="'$(Configuration)' == 'Release'">net8.0</TargetFramework>
+	  <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DebugType>embedded</DebugType>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+  <PropertyGroup>
     <DebugType>embedded</DebugType>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SixLabors.ImageSharp" Version="3.1.5" />
+    <AvaloniaXaml Remove="Release\**" />
+    <Compile Remove="Release\**" />
+    <EmbeddedResource Remove="Release\**" />
+    <None Remove="Release\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="games.json" />
+    <None Remove="Images\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="games.json" />
+    <EmbeddedResource Include="Images\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.1.6" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="D:\Git\RG35XX.NET\RG35XX.Core\RG35XX.Core.csproj" />
     <ProjectReference Include="D:\Git\RG35XX.NET\RG35XX.Libraries\RG35XX.Libraries.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
 
 </Project>
