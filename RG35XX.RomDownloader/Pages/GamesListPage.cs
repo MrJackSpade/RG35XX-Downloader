@@ -3,6 +3,7 @@ using RG35XX.Core.GamePads;
 using RG35XX.Core.Interfaces;
 using RG35XX.Libraries;
 using RG35XX.Libraries.Controls;
+using RomDownloader.Controls;
 using RomDownloader.Models;
 
 namespace RomDownloader.Pages
@@ -35,7 +36,7 @@ namespace RomDownloader.Pages
 
             _gamesList = new()
             {
-                ItemHeight = 0.1f,
+                ItemHeight = 0.2f,
                 Bounds = new Bounds(0f, 0.1f, 1f, 0.9f),
             };
 
@@ -122,14 +123,6 @@ namespace RomDownloader.Pages
                 {
                     BackgroundColor = Color.Transparent
                 };
-
-                Label label = new()
-                {
-                    Text = game.Title,
-                    BackgroundColor = Color.Transparent
-                };
-
-                control.AddControl(label);
 
                 _gamesList.AddControl(control);
             }

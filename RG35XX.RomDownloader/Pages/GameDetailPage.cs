@@ -71,7 +71,28 @@ namespace RomDownloader.Pages
             Label title = new()
             {
                 Text = game.Title,
-                Bounds = new Bounds(0, detailsTop, 1, 0.1f),
+                Bounds = new Bounds(0, detailsTop, 1, 0.05f),
+            };
+
+            Label genre = new()
+            {
+                Text = game.Genre,
+                FontSize = 0.4f,
+                Bounds = new Bounds(0, detailsTop + 0.05f, 1, 0.05f),
+            };
+
+            Label releaseDate = new()
+            {
+                Text = game.ReleaseDate.ToString("yyyy-MM-dd"),
+                FontSize = 0.4f,
+                Bounds = new Bounds(0, detailsTop + 0.1f, 1, 0.05f),
+            };
+
+            Label details = new()
+            {
+                Text = game.Description,
+                FontSize = 0.4f,
+                Bounds = new Bounds(0, detailsTop + 0.15f, 1, 0.75f),
             };
 
             Button downloadButton = new()
@@ -83,6 +104,9 @@ namespace RomDownloader.Pages
 
             downloadButton.Click += this.DownloadButton_Click;
             this.AddControl(title);
+            this.AddControl(genre);
+            this.AddControl(releaseDate);
+            this.AddControl(details);
             this.AddControl(downloadButton);
         }
 
