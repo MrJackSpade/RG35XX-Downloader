@@ -24,14 +24,7 @@ namespace RomDownloader
 
         public Downloader()
         {
-            HttpClientHandler handler = new()
-            {
-                ClientCertificateOptions = ClientCertificateOption.Manual,
-                ServerCertificateCustomValidationCallback =
-                (httpRequestMessage, cert, cetChain, policyErrors) => true
-            };
-
-            _httpClient = new HttpClient(handler);
+            _httpClient = new HttpClient();
 
             _storageProvider = new StorageProvider();
             _storageProvider.Initialize();
@@ -46,6 +39,8 @@ namespace RomDownloader
 
         public async Task Execute()
         {
+            await Utilities.CorrectSystemTime();
+
             try
             {
                 Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("RomDownloader.games.json");

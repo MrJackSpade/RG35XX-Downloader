@@ -20,12 +20,26 @@
 
   <ItemGroup>
     <None Remove="games.json" />
+    <None Remove="icon.png" />
+    <None Remove="Screenshots\**" />
     <None Remove="Images\**" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="games.json" />
     <EmbeddedResource Include="Images\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Screenshots\**">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
