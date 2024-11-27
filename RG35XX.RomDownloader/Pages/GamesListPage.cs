@@ -61,7 +61,10 @@ namespace RomDownloader.Pages
         {
             if (e.IsAccept())
             {
-                GameListItem gameListItem = _gamesList.SelectedItem as GameListItem;
+                if (_gamesList.SelectedItem is not GameListItem gameListItem)
+                {
+                    return;
+                }
 
                 GameDetailPage gameDetailPage = new(_application, _systemName, gameListItem.GameDefinition, _storageProvider);
 
